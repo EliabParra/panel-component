@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel Component</title>
 </head>
 <body>
-    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+    <script>
+        import { PanelComponent } from './lib/PanelComponent/PanelComponent.js'
+
+        // const panel = new PanelComponent({
+        //     title: 'componente hmtl',
+        //     showClose: true,
+        //     resizable: true,
+        //     draggable: true,
+        // })
+    </script>
+
+    <panel-component
+        title="componente hmtl"
+        show-close="true"
+        resizable="true"
+        draggable="true"
+    >
+        <row 
+            row-id="1"
+            contenteditable="true"
+            row-style="height: 100px; background-color: lightgray;"
+        >
+            <div>item 1</div>
+            <div>item 2</div>
+            <div>item 3</div>
+        </row>
+        <div
+            row-id="2"
+            x="24"
+            y="24"
+        >
+            OK
+        </div>
+    </panel-component>
+
+    <script src="./lib/PanelComponent/PanelComponent.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+/* * Botón Fijo (Ejemplo para mostrar el panel)
+ * ----------------------------------------------- 
+ */
+.show-panel-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 998;
+}
+
+/* * Contenedor del Panel (Contexto de Posición)
+ * ----------------------------------------------- 
+ */
+.panel-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* * Estilos del Panel Flotante
+ * ----------------------------------------------- 
+ */
+.panel-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 10px 30px rgba(0, 0, 0, 0.12);
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    transform-origin: top right;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* * Estado Oculto y Animaciones
+ * ----------------------------------------------- 
+ */
+.panel-container.panel-hidden {
+    opacity: 0;
+    transform: scale(0.95) translate(10px, -10px);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* * Cabecera, Título y Botón de Cierre
+ * ----------------------------------------------- 
+ */
+.panel-header {
+    position: relative;
+    text-align: center;
+    padding: 1rem 3.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: move;
+}
+
+.panel-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.panel-close-btn {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.panel-close-btn:hover {
+    background-color: #e0e0e0;
+    color: #111;
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* * Contenido del Panel (Grid)
+ * ----------------------------------------------- 
+ */
+.panel-content {
+    padding: 1.25rem;
+    background-color: #fcfcfc;
+    max-height: 60vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.placeholder-item {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #555;
+}

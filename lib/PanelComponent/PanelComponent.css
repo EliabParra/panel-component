@@ -2,9 +2,6 @@
  * ----------------------------------------------- 
  */
 .show-panel-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
     padding: 10px 20px;
     font-size: 1rem;
     background-color: #007aff;
@@ -12,7 +9,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    z-index: 998;
 }
 
 /* * Contenedor del Panel (Contexto de Posición)
@@ -36,7 +32,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 10px 30px rgba(0, 0, 0, 0.12);
     width: 90%;
-    max-width: 450px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -116,4 +112,35 @@
     padding: 1rem;
     border-radius: 8px;
     color: #555;
+}
+
+/* Rows inside the panel */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 6px;
+    background: transparent;
+}
+
+/* Resizer handle */
+.panel-resizer {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 14px;
+    height: 14px;
+    background: transparent;
+    cursor: se-resize;
+}
+
+/* Make container semi-transparent while dragging */
+.panel-container[dragging], .panel-container.dragging {
+    opacity: 0.6 !important;
+}
+
+/* When absolute positioned via JS, ensure it shows above other content */
+.panel-container[style*="position: absolute"] {
+    z-index: 10000;
 }
